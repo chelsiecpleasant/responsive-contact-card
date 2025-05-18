@@ -1,23 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact Card</title>
+<style>
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+  }
+
+  .contact-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;      
+    width: 300px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+
+  .profile-image {
+    width: 60px;             
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;      
+    margin-bottom: 15px;     
+    display: inline-block;   
+  }
+
+  .more-info {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+  }
+
+  .more-info.show {
+    max-height: 200px;
+    opacity: 1;
+  }
+
+  button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: #0066cc;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
-    
-    <!-- 
-    You must have: 
-    - a profile picture image
-    - Name
-    - Title
-    - Phone Number
-    - Company/Organization Name
 
-    -->
-    
+<div class="contact-card">
+  <img src="images/daisy.png" alt="Profile" class="profile-image" />
 
+  <h2>Daisy Mae</h2>
+  <p>Web Developer</p>
+
+  <div class="more-info" id="moreInfo">
+    <p>Email: daisy@example.com</p>
+    <p>Phone: +1 234 567 890</p>
+  </div>
+
+  <button onclick="toggleInfo()">More Info</button>
+</div>
+
+<script>
+  function toggleInfo() {
+    const info = document.getElementById('moreInfo');
+    info.classList.toggle('show');
+  }
+</script>
 
 </body>
 </html>
